@@ -22,7 +22,7 @@ export default {
 		const statesResponse = await fetch('https://opensky-network.org/api/states/all')
 
 		if (!statesResponse.ok) {
-			sentry.captureException(new Error(`Failed to fetch states from OpenSky: ${statesResponse.statusText}`));
+			sentry.captureException(new Error(`Failed to fetch states from OpenSky: error ${statesResponse.status} - ${statesResponse.statusText}`));
 			return;
 		}
 
@@ -45,7 +45,7 @@ export default {
 		})
 
 		if (!response.ok) {
-			sentry.captureException(new Error(`Failed to publish message to RabbitMQ: ${response.statusText}`));
+			sentry.captureException(new Error(`Failed to publish message to RabbitMQ: error ${response.status} - ${response.statusText}`));
 		}
 	},
 };
