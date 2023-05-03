@@ -38,7 +38,7 @@ export default {
 			},
 			body: JSON.stringify({
 				properties: {},
-				routing_key: "#",
+				routing_key: "opensky",
 				payload: JSON.stringify(statesData),
 				payload_encoding: 'string',
 			}),
